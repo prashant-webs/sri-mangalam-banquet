@@ -1,0 +1,17 @@
+name: Rename to index.html
+on:
+  workflow_dispatch:
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename file to index.html
+        run: |
+          git mv sri-mangalam-banquet-website.html index.html
+          git config user.name "prashant-webs"
+          git config user.email "prashant-webs@users.noreply.github.com"
+          git commit -m "Rename sri-mangalam-banquet-website.html to index.html"
+          git push
